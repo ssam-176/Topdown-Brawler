@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AbilityBase" load_steps=4 format=3 uid="uid://cyfj8qm3n7xbv"]
+
+[ext_resource type="Script" uid="uid://b63cgh8wgtqwf" path="res://scripts/abilities/ability_base.gd" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://bkw8qm5n3yacv" path="res://scenes/projectiles/homing_projectile.tscn" id="2_56ivh"]
+[ext_resource type="Script" uid="uid://dq3s3atfqwlqa" path="res://scripts/abilities/behaviors/homing_burst_behavior.gd" id="2_behavior"]
+
+[resource]
+script = ExtResource("1_base")
+ability_name = "Homing Burst"
+cooldown = 2.0
+energy_cost = 35.0
+cast_time = 0.3
+behavior_script = ExtResource("2_behavior")
+projectile_scene = ExtResource("2_56ivh")
+projectile_speed = 300.0
+projectile_damage = 8.0
+projectile_lifetime = 5.0

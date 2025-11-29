@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityBase" load_steps=3 format=3 uid="uid://bxfj8qm3oaycv"]
+
+[ext_resource type="Script" uid="uid://b63cgh8wgtqwf" path="res://scripts/abilities/ability_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://df6epv351mhet" path="res://scripts/abilities/behaviors/stomp_behavior.gd" id="2_behavior"]
+
+[resource]
+script = ExtResource("1_base")
+ability_name = "Stomp"
+cooldown = 8.0
+energy_cost = 50.0
+cast_time = 0.5
+behavior_script = ExtResource("2_behavior")

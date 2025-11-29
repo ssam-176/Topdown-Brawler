@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy8wqm5n4xbcv"]
+
+[ext_resource type="Script" uid="uid://bt6fvruy18f6" path="res://scripts/projectiles/hook_projectile.gd" id="1_hook"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sprite"]
+
+[node name="HookProjectile" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_hook")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.3, 1)
+scale = Vector2(24, 12)
+texture = SubResource("PlaceholderTexture2D_sprite")
+
+[node name="Chain" type="Line2D" parent="."]
+points = PackedVector2Array(778, 378)
+width = 3.0
+default_color = Color(0.8, 0.8, 0.3, 0.8)

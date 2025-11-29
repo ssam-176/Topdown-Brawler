@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5f8qm7n4y8bv"]
+
+[ext_resource type="Script" path="res://scripts/test_dummy.gd" id="1_dummy"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="2_health"]
+[ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="3_healthbar"]
+[ext_resource type="Script" path="res://scripts/ui/stock_display.gd" id="4_stocks"]
+[ext_resource type="Script" path="res://scripts/components/state_component.gd" id="5_state"]
+[ext_resource type="Script" path="res://scripts/ui/status_display.gd" id="6_status"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 20.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sprite"]
+size = Vector2(1, 1)
+
+[node name="TestDummy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_dummy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.3, 0.3, 1)
+scale = Vector2(40, 40)
+texture = SubResource("PlaceholderTexture2D_sprite")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_health")
+max_health = 50.0
+respawn_time = 2.0
+health_regen_rate = 2.0
+regen_delay = 5.0
+use_stocks = true
+max_stocks = 2
+
+[node name="StateComponent" type="Node" parent="."]
+script = ExtResource("5_state")
+
+[node name="HealthBar" type="Node2D" parent="."]
+script = ExtResource("3_healthbar")
+
+[node name="StockDisplay" type="Node2D" parent="."]
+script = ExtResource("4_stocks")
+
+[node name="StatusDisplay" type="Node2D" parent="."]
+script = ExtResource("6_status")

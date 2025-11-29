@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityBase" load_steps=3 format=3 uid="uid://c2yop1okxafwc"]
+
+[ext_resource type="Script" uid="uid://b63cgh8wgtqwf" path="res://scripts/abilities/ability_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://3cuy1fljpf2s" path="res://scripts/abilities/behaviors/dash_behavior.gd" id="2_behavior"]
+
+[resource]
+script = ExtResource("1_base")
+ability_name = "Dash"
+cooldown = 0.2
+energy_cost = 25.0
+cast_time = 0.0
+cast_type = 2
+behavior_script = ExtResource("2_behavior")

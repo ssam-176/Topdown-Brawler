@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://dxcdilwcvuina"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/player/ability_manager.gd" id="2_ability"]
+[ext_resource type="Script" path="res://scripts/player/input_handler.gd" id="3_input"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="4_health"]
+[ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="5_healthbar"]
+[ext_resource type="Script" path="res://scripts/ui/stock_display.gd" id="6_stocks"]
+[ext_resource type="Script" path="res://scripts/components/state_component.gd" id="7_state"]
+[ext_resource type="Script" path="res://scripts/ui/energy_bar.gd" id="8_energy"]
+[ext_resource type="Script" path="res://scripts/ui/status_display.gd" id="9_status"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 20.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sprite"]
+size = Vector2(1, 1)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.3, 0.5, 1, 1)
+scale = Vector2(40, 40)
+texture = SubResource("PlaceholderTexture2D_sprite")
+
+[node name="AbilityManager" type="Node" parent="."]
+script = ExtResource("2_ability")
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("3_input")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_health")
+max_health = 100.0
+respawn_time = 3.0
+health_regen_rate = 5.0
+regen_delay = 3.0
+use_stocks = true
+max_stocks = 3
+
+[node name="StateComponent" type="Node" parent="."]
+script = ExtResource("7_state")
+
+[node name="HealthBar" type="Node2D" parent="."]
+script = ExtResource("5_healthbar")
+
+[node name="EnergyBar" type="Node2D" parent="."]
+script = ExtResource("8_energy")
+
+[node name="StockDisplay" type="Node2D" parent="."]
+script = ExtResource("6_stocks")
+
+[node name="StatusDisplay" type="Node2D" parent="."]
+script = ExtResource("9_status")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AbilityBase" load_steps=4 format=3 uid="uid://daewc5wlxvqvj"]
+
+[ext_resource type="Script" uid="uid://b63cgh8wgtqwf" path="res://scripts/abilities/ability_base.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://cu18lxpmk4mn8" path="res://scripts/abilities/behaviors/projectile_behavior.gd" id="2_behavior"]
+[ext_resource type="PackedScene" uid="uid://cxnvwb0h4qx8u" path="res://scenes/projectiles/projectile.tscn" id="2_ppkk7"]
+
+[resource]
+script = ExtResource("1_base")
+ability_name = "Basic Projectile"
+cooldown = 0.5
+energy_cost = 15.0
+cast_time = 0.15
+cast_type = 1
+behavior_script = ExtResource("2_behavior")
+projectile_scene = ExtResource("2_ppkk7")

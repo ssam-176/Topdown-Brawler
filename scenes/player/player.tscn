@@ -1,0 +1,59 @@
+[gd_scene load_steps=17 format=3 uid="uid://dm7ku0bjjohqx"]
+
+[ext_resource type="Script" uid="uid://dnfc277si612v" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Script" uid="uid://xltmloy83u7a" path="res://scripts/player/ability_manager.gd" id="2_ability"]
+[ext_resource type="Script" uid="uid://b63cgh8wgtqwf" path="res://scripts/abilities/ability_base.gd" id="3_75vfm"]
+[ext_resource type="Script" uid="uid://dly8xqy1ip0g4" path="res://scripts/player/input_handler.gd" id="3_input"]
+[ext_resource type="Resource" uid="uid://daewc5wlxvqvj" path="res://resources/abilities/basic_projectile.tres" id="4_0owmy"]
+[ext_resource type="Script" uid="uid://dsrcjpum52d8t" path="res://scripts/components/health_component.gd" id="4_health"]
+[ext_resource type="Script" uid="uid://cyi2kr8g7dg7a" path="res://scripts/ui/health_bar.gd" id="5_healthbar"]
+[ext_resource type="Resource" uid="uid://c2yop1okxafwc" path="res://resources/abilities/dash.tres" id="5_qek5x"]
+[ext_resource type="Resource" uid="uid://bxfj8qm3oaycv" path="res://resources/abilities/stomp.tres" id="6_gx1jg"]
+[ext_resource type="Script" uid="uid://bdf5mortwpt6h" path="res://scripts/ui/stock_display.gd" id="6_stocks"]
+[ext_resource type="Resource" uid="uid://dyfj8qm3n8xcv" path="res://resources/abilities/hook.tres" id="7_fm80t"]
+[ext_resource type="Script" uid="uid://civkq1nlne5mf" path="res://scripts/components/state_component.gd" id="7_state"]
+[ext_resource type="Script" uid="uid://cwia4cp2i0q5" path="res://scripts/ui/energy_bar.gd" id="8_energy"]
+[ext_resource type="Script" uid="uid://4xgavdydvnph" path="res://scripts/ui/status_display.gd" id="9_status"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 20.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sprite"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.3, 0.5, 1, 1)
+scale = Vector2(40, 40)
+texture = SubResource("PlaceholderTexture2D_sprite")
+
+[node name="AbilityManager" type="Node" parent="."]
+script = ExtResource("2_ability")
+ability_slots = Array[ExtResource("3_75vfm")]([ExtResource("4_0owmy"), ExtResource("5_qek5x"), ExtResource("6_gx1jg"), ExtResource("7_fm80t")])
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("3_input")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_health")
+health_regen_rate = 5.0
+use_stocks = true
+
+[node name="StateComponent" type="Node" parent="."]
+script = ExtResource("7_state")
+
+[node name="HealthBar" type="Node2D" parent="."]
+script = ExtResource("5_healthbar")
+
+[node name="EnergyBar" type="Node2D" parent="."]
+script = ExtResource("8_energy")
+
+[node name="StockDisplay" type="Node2D" parent="."]
+script = ExtResource("6_stocks")
+
+[node name="StatusDisplay" type="Node2D" parent="."]
+script = ExtResource("9_status")

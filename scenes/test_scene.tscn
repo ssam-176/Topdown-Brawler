@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvqx7mn8nwi5a"]
+
+[ext_resource type="Script" path="res://scripts/test_scene.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://dm7ku0bjjohqx" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://c5f8qm7n4y8bv" path="res://scenes/test/test_dummy.tscn" id="3_dummy"]
+[ext_resource type="PackedScene" uid="uid://cyfj9qm4n1xcv" path="res://scenes/ui/ability_ui.tscn" id="4_ui"]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+
+[node name="TestDummy" parent="." instance=ExtResource("3_dummy")]
+position = Vector2(250, 0)
+
+[node name="TestDummy2" parent="." instance=ExtResource("3_dummy")]
+position = Vector2(-250, 0)
+
+[node name="TestDummy3" parent="." instance=ExtResource("3_dummy")]
+position = Vector2(0, 250)
+
+[node name="TestDummy4" parent="." instance=ExtResource("3_dummy")]
+position = Vector2(0, -250)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AbilityUI" parent="CanvasLayer" instance=ExtResource("4_ui")]

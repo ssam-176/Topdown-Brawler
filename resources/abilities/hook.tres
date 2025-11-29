@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AbilityBase" load_steps=4 format=3 uid="uid://dyfj8qm3n8xcv"]
+
+[ext_resource type="Script" uid="uid://b63cgh8wgtqwf" path="res://scripts/abilities/ability_base.gd" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://cy8wqm5n4xbcv" path="res://scenes/projectiles/hook_projectile.tscn" id="2_6bkt1"]
+[ext_resource type="Script" uid="uid://f6tpu72bnj54" path="res://scripts/abilities/behaviors/hook_behavior.gd" id="2_behavior"]
+
+[resource]
+script = ExtResource("1_base")
+ability_name = "Hook"
+cooldown = 4.0
+energy_cost = 40.0
+cast_type = 1
+behavior_script = ExtResource("2_behavior")
+projectile_scene = ExtResource("2_6bkt1")
+projectile_speed = 800.0
+projectile_damage = 15.0
+projectile_lifetime = 1.5
